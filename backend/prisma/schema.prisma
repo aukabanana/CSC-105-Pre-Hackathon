@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Electronic {
+  id              String         @id @default(uuid())
+  name            String
+  watt            Float
+  status          Boolean        @default(false)
+  type            ElectronicType
+  location        String
+
+  temp            Float?
+  time_usage      Int            @default(0)
+  last_started_at DateTime?
+
+  is_active       Boolean        @default(true)
+
+  created_at      DateTime       @default(now())
+  updated_at      DateTime       @updatedAt
+
+  notifications   Notification[]
+}
+
+enum ElectronicType {
+  WATER
+  LIGHT
+  AC
+  FAN
+  TV
+  SECURITY
+  ETC
+}
+
+model Notification {
+  id            String            @id @default(uuid())
+
+  electronic_id String
+  electronic    Electronic        @relation(fields: [electronic_id], references: [id])
+
+  type          NotificationType
+  level         NotificationLevel @default(INFO)
+
+  title         String
+  message       String
+
+  is_read       Boolean           @default(false)
+
+  created_at    DateTime          @default(now())
+}
+
+enum NotificationType {
+  ELECTRIC_COST_EXCEEDED
+  DEVICE_ON_TOO_LONG
+  DEVICE_OFFLINE
+  HIGH_TEMPERATURE
+  LOW_TEMPERATURE
+  SYSTEM_INFO
+}
+
+enum NotificationLevel {
+  INFO
+  WARNING
+  CRITICAL
+}
