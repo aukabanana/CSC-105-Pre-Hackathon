@@ -1,9 +1,10 @@
-import DashboardHeader from "../components/dashboardHeader"
+import DashboardHeader from "../components/dashboardHeader.tsx"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faUser,
     faLock
 } from '@fortawesome/free-solid-svg-icons'
+
 
 function LoginPage() {
     return (
@@ -35,7 +36,7 @@ function LoginPage() {
                     </div>
                     <div className="flex flex-col gap-5">
                         <button className="
-                    text-center bg-(--color-primary) text-(--bg-card) p-3 rounded-xl shadow-(--shadow-button) w-full">
+                            text-center bg-(--color-primary) text-(--bg-card) p-3 rounded-xl shadow-(--shadow-button) w-full">
                             Login
                         </button>
                         <p className="font-light text-xs md:text-sm p-2">Manage devices, monitor energy usage and view alerts</p>
