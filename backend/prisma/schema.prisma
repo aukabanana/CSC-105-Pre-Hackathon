@@ -12,6 +12,12 @@ datasource db {
   provider = "sqlite"
 }
 
+model Admin {
+  id              String @id @default(uuid())
+  username        String
+  password        String
+}
+
 model Electronic {
   id              String         @id @default(uuid())
   name            String
