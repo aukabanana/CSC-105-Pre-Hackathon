@@ -37,15 +37,16 @@
     --color-alert-rgb: 253, 115, 111;
 
     /* == SHADOW == */
-    --shadow-lg: box-shadow: 0 1px 16px -2px rgba(30, 30, 30, 0.25);
+    --shadow-lg: 0 1px 16px -2px rgba(30, 30, 30, 0.25);
+    --shadow-button: 0 4px 8px -2px rgba(26, 86, 194, 0.25);
 
 }
 
-* {
+/* * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
+} */
 
 html {
     scroll-behavior: smooth;
