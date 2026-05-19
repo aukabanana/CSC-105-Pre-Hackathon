@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import  type { Header }  from "../types/header";
 import {
-    faHouse
+    faHouse,
+    faRightFromBracket
 } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -16,7 +17,7 @@ function DashboardHeader({title, username}: Header) {
             </div>
             <div className="flex flex-row items-center gap-5 pr-5">
                 <h2 className="text-2xl font-bold">{username}</h2>
-                {username && <FontAwesomeIcon icon={faHouse} className="text-2xl" />}
+                {username && <FontAwesomeIcon icon={faRightFromBracket} className="text-2xl" />}
             </div>
         </div>
     )

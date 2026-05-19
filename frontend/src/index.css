@@ -73,6 +73,23 @@ body {
     box-shadow:
         inset 0 4px 8px -2px rgba(var(--color-primary-rgb), 0.25),
         0 1px 16px -2px rgba(var(--color-primary-rgb), 0.25);
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, box-shadow, background;
+}
+.device:hover {
+    transform: translateY(-1px);
+    background: var(--color-primary);
+    transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.device:hover svg {
+    transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    background: var(--bg-card);
+    color: var(--color-primary);
+}
+.device:hover p {
+    transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    color: var(--bg-card);
 }
 
 .calculate {
@@ -82,6 +99,23 @@ body {
     box-shadow:
         inset 0 4px 8px -2px rgba(var(--color-success-rgb), 0.25),
         0 1px 16px -2px rgba(var(--color-success-rgb), 0.25);
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, box-shadow, background;
+}
+.calculate:hover {
+    transform: translateY(-1px);
+    background: var(--color-success);
+    transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.calculate:hover svg {
+    transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    background: var(--bg-card);
+    color: var(--color-success);
+}
+.calculate:hover p {
+    transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    color: var(--bg-card);
 }
 
 .notifications {
@@ -91,6 +125,21 @@ body {
     box-shadow:
         inset 0 4px 8px -2px rgba(var(--color-danger-rgb), 0.25),
         0 1px 16px -2px rgba(var(--color-danger-rgb), 0.25);
+}
+.notifications:hover {
+    transform: translateY(-1px);
+    background: var(--color-danger);
+    transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.notifications:hover svg {
+    transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    background: var(--bg-card);
+    color: var(--color-danger);
+}
+.notifications:hover p {
+    transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    color: var(--bg-card);
 }
 
 .status-pill.info {
@@ -109,4 +158,6 @@ body {
     border-radius: 99px;
     background: rgba(var(--color-danger-rgb), 0.15);
     color: var(--color-danger);
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, box-shadow, background;
 }
