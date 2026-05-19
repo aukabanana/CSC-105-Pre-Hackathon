@@ -25,7 +25,7 @@ export default function NotificationList() {
             gap-2.5">
                 <span className="flex justify-center items-center bg-(--color-primary) text-(--bg-card) font-bold cursor-pointer transition duration-300 ease-in-out
                 py-2.5 px-5 rounded-lg
-                hover:shadow-(--shadow-button) hover:scale-105">mark as read</span>
+                hover:shadow-(--shadow-button) hover:bg-(--color-primary-hover)">mark as read</span>
                 <p className="text-(--text-main) font-medium">May 16, 2026</p>
             </div>
         </div>
