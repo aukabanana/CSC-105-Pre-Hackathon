@@ -38,6 +38,7 @@
 
     /* == SHADOW == */
     --shadow-lg: 0 1px 16px -2px rgba(30, 30, 30, 0.25);
+    --shadow-cancel: 0 4px 8px -2px rgba(30, 30, 30, 0.25);
     --shadow-button: 0 4px 8px -2px rgba(26, 86, 194, 0.25);
 
 }
@@ -142,6 +143,19 @@ body {
     color: var(--bg-card);
 }
 
+.delButton:hover {
+    cursor: pointer;
+    background-color: var(--color-danger);
+    transition: background 0.6s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+.delButton:hover svg , .delButton:hover p {
+    color: var(--bg-card);
+    transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.cancelButton:hover {
+    color: var(--color-primary);
+}
 .status-pill.info {
     border-radius: 99px;
     background: rgba(var(--color-primary-rgb), 0.15);
