@@ -4,8 +4,9 @@ import NotificationList from "../components/notificationList";
 
 export default function NotificationsPage () {
     return (
-        <div className="flex flex-col p-10 bg-(--bg-main)
-        gap-y-8">
+        <div className="flex flex-col bg-(--bg-main)
+        p-5 gap-y-5
+        md:p-10 md:gap-y-10">
             <DashboardHeader title="Notifications" username="Admin Username" />
             
             <GoHomeButton />
