@@ -1,13 +1,13 @@
-import { Request,Response } from "express";
+import { Request, Response } from "express";
 import prisma from "../lib/prisma.js";
 
 export const getCalElectronics = async (req: Request, res: Response) => {
     try {
-        
+
         const electronics = await prisma.electronic.findMany();
 
         const calculatedData = electronics.map((item: { time_usage: number; watt: number }) => {
-            const hours = item.time_usage / 3600; 
+            const hours = item.time_usage / 3600;
             const kwh = (item.watt * hours) / 1000;
             const rate = 4.5; // บาทต่อหน่วย
             const cost = kwh * rate;
