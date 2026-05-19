@@ -6,6 +6,7 @@ import App from './App.tsx'
 import NotificationsPage from './pages/notificationsPage.tsx'
 import ElectricChargePage from './pages/electricChargePage.tsx'
 import DashboardPage from './pages/dashboardPage.tsx'
+import { DevicePage } from './pages/devicesPage.tsx'
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     {
         path: '/notifications',
         element: <NotificationsPage />   
+    },
+    {
+        path: '/devices-controller',
+        element: <DevicePage />
     },
     {
         path: '/electric-charge',
