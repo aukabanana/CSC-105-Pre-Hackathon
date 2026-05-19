@@ -14,9 +14,12 @@ export function DevicePage() {
                 <GoHomeButton />
                 <button className="px-4 md:px-6 bg-(--color-primary) 
                 rounded-full flex flex-row items-center justify-center gap-4
-                shadow-(--shadow-button) cursor-pointer hover:bg-(--color-primary-hover)" onClick={() => setAddDevice(true)}>
-                    <h1 className="text-2xl text-center font-medium text-(--bg-card)">+</h1>
-                    <h1 className="text-lg text-center font-semibold 
+                shadow-(--shadow-button) cursor-pointer hover:bg-(--color-primary-hover)
+                sm:h-10 sm:px-2.5 sm:gap-1.25
+                md:h-12.5 md:px-4 md:gap-2.5
+                " onClick={() => setAddDevice(true)}>
+                    <h1 className="text-[16px] md:text-[20px] text-center font-medium text-(--bg-card)">+</h1>
+                    <h1 className=" text-[12px] sm:text-[16px] md:text-[20px] text-center font-semibold 
                     text-(--bg-card) flex items-center-safe">Add Device</h1>
                 </button>
             </div>
