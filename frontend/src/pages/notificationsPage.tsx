@@ -1,5 +1,6 @@
 import DashboardHeader from "../components/dashboardHeader";
 import GoHomeButton from "../components/goHomeButton";
+import NotificationList from "../components/notificationList";
 
 export default function NotificationsPage () {
     return (
@@ -9,7 +10,7 @@ export default function NotificationsPage () {
             
             <GoHomeButton />
             
-            
+            <NotificationList />
 
         </div>
 

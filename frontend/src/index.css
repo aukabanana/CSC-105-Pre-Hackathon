@@ -70,7 +70,7 @@ body {
     border-radius: 99px;
     border: 0.5px solid var(--color-primary);
     background: var(--bg-card);
-    box-shadow: 
+    box-shadow:
         inset 0 4px 8px -2px rgba(var(--color-primary-rgb), 0.25),
         0 1px 16px -2px rgba(var(--color-primary-rgb), 0.25);
     transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -96,7 +96,7 @@ body {
     border-radius: 99px;
     border: 0.5px solid var(--color-success);
     background: var(--bg-card);
-    box-shadow: 
+    box-shadow:
         inset 0 4px 8px -2px rgba(var(--color-success-rgb), 0.25),
         0 1px 16px -2px rgba(var(--color-success-rgb), 0.25);
     transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -122,11 +122,9 @@ body {
     border-radius: 99px;
     border: 0.5px solid var(--color-danger);
     background: var(--bg-card);
-    box-shadow: 
+    box-shadow:
         inset 0 4px 8px -2px rgba(var(--color-danger-rgb), 0.25),
         0 1px 16px -2px rgba(var(--color-danger-rgb), 0.25);
-    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: transform, box-shadow, background;
 }
 .notifications:hover {
     transform: translateY(-1px);
@@ -142,4 +140,24 @@ body {
 .notifications:hover p {
     transition: background 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
     color: var(--bg-card);
+}
+
+.status-pill.info {
+    border-radius: 99px;
+    background: rgba(var(--color-primary-rgb), 0.15);
+    color: var(--color-primary);
+}
+
+.status-pill.warning {
+    border-radius: 99px;
+    background: rgba(var(--color-orange-rgb), 0.15);
+    color: var(--color-orange);
+}
+
+.status-pill.critical {
+    border-radius: 99px;
+    background: rgba(var(--color-danger-rgb), 0.15);
+    color: var(--color-danger);
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, box-shadow, background;
 }
