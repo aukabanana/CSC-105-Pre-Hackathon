@@ -8,17 +8,17 @@ import {
 
 function LoginPage() {
     return (
-        <div className="flex flex-col p-10 bg-(--bg-main)">
+        <div className="flex flex-col p-5 md:p-10 bg-(--bg-card)">
             <DashboardHeader title="Login" />
 
             <div className="flex justify-center items-center min-h-screen">
-                <div className="flex flex-col items-center gap-10 p-10 bg-(--bg-card) rounded-3xl shadow-(--shadow-lg)">
+                <div className="flex flex-col items-center gap-[clamp(20px,2.5vw,40px)] p-[clamp(20px,2.5vw,40px)] rounded-3xl shadow-(--shadow-lg)">
                     <div className="flex flex-col items-center gap-5">
-                        <h3 className="text-2xl font-bold">Welcome Back</h3>
-                        <p className="text-sm font-medium">Login in to access smart home dashboard</p>
+                        <h3 className="text-[16px] sm:text-[20px] md:text-[24px] font-bold">Welcome Back</h3>
+                        <p className="text-[14px] md:text-[18px] font-medium">Login in to access smart home dashboard</p>
                     </div>
-                    <div className="flex flex-col gap-5 w-full">
-                        <div className="flex flex-col gap-1.5 ">
+                    <div className="flex flex-col gap-[clamp(20px,2.5vw,40px)] w-full">
+                        <div className="flex flex-col gap-[clamp(5px,2.5vw,10px)] ">
                             <label className="font-bold">Username</label>
                             <div className="flex flex-row items-center border py-3 px-4 rounded-xl gap-4">
                                 <FontAwesomeIcon icon={faUser} className="text-gray-500"/>

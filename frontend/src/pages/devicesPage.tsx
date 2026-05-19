@@ -6,7 +6,7 @@ import { useState } from "react";
 export function DevicePage() {
     const [addDevice, setAddDevice] = useState<boolean>(false)
     return (
-        <div className="flex flex-col p-10 bg-(--bg-main)
+        <div className="flex flex-col p-5 md:p-10 bg-(--bg-main)
         gap-y-8">
             <DashboardHeader title="Device" username="Admin Username" />
 
