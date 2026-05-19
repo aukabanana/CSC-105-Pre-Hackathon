@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import NotificationsPage from './pages/notificationsPage.tsx'
+import DashboardPage from './pages/dashboardPage.tsx'
+import { DevicePage } from './pages/devicesPage.tsx'
 
 const router = createBrowserRouter([
     {
@@ -15,9 +17,14 @@ const router = createBrowserRouter([
         element: <NotificationsPage />   
     },
     {
-        path: '/',
-        element: <App />   
+        path: '/dashboard',
+        element: <DashboardPage />   
     },
+    {
+        path: '/devices-controller',
+        element: <DevicePage />   
+    },
+
 ])
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
