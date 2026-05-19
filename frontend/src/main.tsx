@@ -24,6 +24,7 @@ const router = createBrowserRouter([
         path: '/electric-charge',
         element: <ElectricChargePage />   
     },
+
 ])
 
 createRoot(document.getElementById('root')!).render(

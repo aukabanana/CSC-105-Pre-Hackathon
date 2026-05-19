@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import  type { Header }  from "../types/header";
+import  type { Header }  from "../types/types";
 import {
     faHouse,
     faRightFromBracket
