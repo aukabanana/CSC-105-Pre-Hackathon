@@ -1,9 +1,10 @@
-import * as controller from '../controllers/system.controller.js'
-import { Router } from 'express'
+import { Router } from "express";
+import { getCalElectronics, getCalElectronicsById } from '../controllers/system.controller.js';
 
-const router = Router()
+const router = Router();
 
-router.get('/api/electronics',  controller.getCalElectronics)
-router.patch('/api/electronics/:id', controller.getCalElectronicsById)
+router.get("/electronics", getCalElectronics);
+router.patch("/electronics/:id", getCalElectronicsById);
 
-export default router
+export default router;
+

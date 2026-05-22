@@ -1,15 +1,17 @@
-import { Request,Response } from "express";
+import { Request, Response } from "express";
 import prisma from "../lib/prisma.js";
+
 
 export const getCalElectronics = async (req: Request, res: Response) => {
     try {
-        
+       
         const electronics = await prisma.electronic.findMany();
 
-        const calculatedData = electronics.map((item: { time_usage: number; watt: number }) => {
-            const hours = item.time_usage / 3600; 
-            const kwh = (item.watt * hours) / 1000;
-            const rate = 4.5; // บาทต่อหน่วย
+       
+        const calculatedData = electronics.map((item: any) => {
+            const hours = (item.time_usage || 0) / 3600; 
+            const kwh = ((item.watt || 0) * hours) / 1000;
+            const rate = 4.5;
             const cost = kwh * rate;
 
             return {
@@ -21,11 +23,10 @@ export const getCalElectronics = async (req: Request, res: Response) => {
 
         res.json(calculatedData);
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error in getCalElectronics:', error);
         res.status(500).json({ message: 'Internal Server Error' });
     }
 }
-
 
 export const getCalElectronicsById = async (req: Request, res: Response) => {
     const { id } = req.params;
@@ -36,10 +37,15 @@ export const getCalElectronicsById = async (req: Request, res: Response) => {
             where: {
                 id: id as string
             },
-            data: { time_usage, status, temp }
+            data: { 
+                time_usage: time_usage !== undefined ? Number(time_usage) : undefined, 
+                temp: temp !== undefined ? Number(temp) : undefined,
+                status: status !== undefined ? (status == 1 || status === true) : undefined
+            }
         });
         res.json({ message: 'Success', data: updated });
     } catch (error) {
-        res.status(404).json({ message: 'Device not found' });
+        console.error('Error in getCalElectronicsById:', error);
+        res.status(404).json({ message: 'Device not found or update failed' });
     }
 }
