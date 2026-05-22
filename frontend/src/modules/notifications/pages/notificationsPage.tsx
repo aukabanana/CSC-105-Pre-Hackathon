@@ -1,5 +1,5 @@
-import DashboardHeader from "../components/dashboardHeader";
-import GoHomeButton from "../components/goHomeButton";
+import DashboardHeader from "../../../components/dashboardHeader";
+import GoHomeButton from "../../../components/goHomeButton";
 import NotificationList from "../components/notificationList";
 
 export default function NotificationsPage () {
