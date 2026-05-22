@@ -8,8 +8,6 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 import authRouter from './routes/auth.route.js'
 import router from './routes/routes.js';
 
-
-
 dotenv.config()
 
 const app = express();
@@ -17,7 +15,10 @@ const PORT = process.env.PORT
 
 if (!PORT) throw new Error('PORT is missing in your dotenv file')
 
-app.use(cors({ origin: "http://localhost:5173"}))
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}))
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
@@ -25,10 +26,10 @@ app.use(cors({
     credentials: true
 }))
 app.use(morgan('dev'))
-app.use(router)
-app.use(authRouter)
-app.use(errorHandler);
 
+app.use('/api', router);
+app.use(authRouter);
+app.use(errorHandler);
 
 app.use(errorHandler)
 app.listen(PORT, () => {
