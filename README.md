@@ -78,9 +78,10 @@ mkdir -p uploads/img
 Generate Prisma client:
 
 ```bash
+npm install
 npx prisma generate
-npx prisma db push
-npm run dev
+npx prisma migrate dev
+npx prisma db seed
 ```
 
 The backend server should run at:

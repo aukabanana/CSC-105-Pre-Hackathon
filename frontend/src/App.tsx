@@ -1,9 +1,9 @@
-import LoginPage from "./pages/loginPage";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <LoginPage />
+      <Outlet />
     </>
   );
 }
