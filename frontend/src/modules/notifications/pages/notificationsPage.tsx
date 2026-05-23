@@ -11,6 +11,7 @@ export default function NotificationsPage() {
     const [notifications, setNotifications] = useState<Notification[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchNotifications() {
@@ -53,7 +54,9 @@ export default function NotificationsPage() {
                         md:p-10 md:gap-y-10">
             <DashboardHeader title="Notifications" username="Admin Username" />
 
-            <GoHomeButton />
+            <GoHomeButton 
+                onClick={()=>navigate('/dashboard')}
+            />
 
             {isLoading && (
                 <div className="w-full flex justify-center items-center bg-(--bg-card) rounded-3xl p-5 shadow-(--shadow-lg) text-(--text-primary)

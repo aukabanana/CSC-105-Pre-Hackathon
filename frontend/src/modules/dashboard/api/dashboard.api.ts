@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/dashboard";
+const API_URL = "http://localhost:3000/api/dashboard";
 
 interface DashboardSummaryResponse {
     summary: {
@@ -25,7 +25,7 @@ interface DashboardSummaryResponse {
 
 export async function getDashboardData(): Promise<DashboardSummaryResponse> {
     try {
-        const response = await axios.get<DashboardSummaryResponse>(`${API_URL}/dashboard`, {
+        const response = await axios.get<DashboardSummaryResponse>(`${API_URL}`, {
             withCredentials: true
         });
         return response.data;

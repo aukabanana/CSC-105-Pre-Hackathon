@@ -18,7 +18,10 @@ export default function ElectricChargePage() {
 
   const fetchDevices = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/electronics');
+      const response = await axios.get('http://localhost:3000/api/electronics',
+        {
+          withCredentials: true
+        });
       setDevices(response.data);
       setLoading(false);
     } catch (error) {
@@ -37,7 +40,7 @@ export default function ElectricChargePage() {
 
   const totalKwh = devices.reduce((sum, item) => sum + Number(item.calculated_kwh || 0), 0);
   const subtotal = devices.reduce((sum, item) => sum + Number(item.calculated_cost || 0), 0);
-  
+
   const vat = subtotal * 0.07;
   const totalBill = subtotal + vat;
 
@@ -72,7 +75,7 @@ export default function ElectricChargePage() {
             {devices.length}
           </div>
         </div>
-        
+
         <div className="flex justify-center gap-6 text-center">
           <div>
             <span className="text-xl">💡</span>
