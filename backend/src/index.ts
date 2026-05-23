@@ -2,11 +2,12 @@ import express, { Request, Response } from 'express'
 import 'dotenv/config'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
-import cors from 'cors'
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import authRouter from './routes/auth.route.js'
-import router from './routes/routes.js'
+import router from './routes/routes.js';
+
 dotenv.config()
 
 const app = express();
@@ -21,15 +22,16 @@ app.use(cors({
     credentials: true
 }))
 app.use(morgan('dev'))
-app.use(router)
-app.use(authRouter)
-app.use(errorHandler);
 
+app.use('/api', router);
+app.use(authRouter);
 
 app.use(errorHandler)
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`)
 })
+
 app.get('/', (req: Request, res: Response) => {
     res.send('Connected, Welcome to BackEnd jaaaa 👾👾')
 })
