@@ -22,3 +22,20 @@ export async function getNotification() {
         },
     });
 }
+
+export async function markNotificationAsRead(id: string) {
+    return prisma.notification.update({
+        where: { id },
+        data: { is_read: true },
+        include: {
+            electronic: {
+                select: {
+                    id: true,
+                    name: true,
+                    type: true,
+                    location: true,
+                }
+            }
+        }
+    })
+}
