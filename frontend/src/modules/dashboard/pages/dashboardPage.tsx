@@ -4,6 +4,8 @@ import { faPowerOff, faCalculator, faCircle } from "@fortawesome/free-solid-svg-
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 import { Line, Bar, Doughnut } from 'react-chartjs-2';
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -15,6 +17,7 @@ import {
   LineElement,
   BarElement
 } from 'chart.js'
+import { getDashboardData } from "../api/dashboard.api";
 
 ChartJS.register(
   ArcElement,
@@ -27,109 +30,65 @@ ChartJS.register(
   BarElement
 )
 
+interface DashboardSummaryResponse {
+    summary: {
+        allDevices: number;
+        activeDevices: number;
+        inactiveDevices: number;
+    };
+    categoriesCount: {
+        LIGHT: number;
+        WATER: number;
+        AC: number;
+        FAN: number;
+        TV: number;
+        SECURITY: number;
+        ETC: number;
+    };
+    temperatureHistory: {
+        ac: number[];
+        water: number[];
+    };
+}
+
 
 function DashboardPage() {
 
   const navigate = useNavigate()
+  const [dashboardData, setDashboardData] = useState<DashboardSummaryResponse | null>(null);
 
-    const devices = [
-    {
-      name: 'Living Room Light',
-      status: 'active',
-      type: 'light'
-    },
-    {
-      name: 'Kitchen Light',
-      status: 'inactive',
-      type: 'light'
-    },
-    {
-      name: 'Refrigerator',
-      status: 'active',
-      type: 'ac',
-      history: [
-      { time: '08:00', temp: 3 },
-      { time: '12:00', temp: 0 },
-      { time: '16:00', temp: 2 },
-      { time: '20:00', temp: -1 },
-      { time: '24:00', temp: 2 }
-    ]
-    },
-    {
-      name: 'Bedroom Fan',
-      status: 'inactive',
-      type: 'fan'
-    },
-    {
-      name: 'TV',
-      status: 'active',
-      type: 'tv'
-    },
-    {
-      name: 'Living Room Light',
-      status: 'active',
-      type: 'light'
-    },
-    {
-      name: 'Kitchen Light',
-      status: 'inactive',
-      type: 'light'
-    },
-    {
-      name: 'Air Conditioner',
-      status: 'active',
-      type: 'ac',
-      history: [
-      { time: '08:00', temp: 70 },
-      { time: '12:00', temp: 68 },
-      { time: '16:00', temp: 88 },
-      { time: '20:00', temp: 76 },
-      { time: '24:00', temp: 86 }
-    ]
-    },
-    {
-      name: 'Bedroom Fan',
-      status: 'active',
-      type: 'fan'
-    },
-    {
-      name: 'TV',
-      status: 'active',
-      type: 'tv'
-    },
-    {
-      name: 'Living Room Light',
-      status: 'active',
-      type: 'light'
-    },
-    {
-      name: 'TV',
-      status: 'active',
-      type: 'light'
-    },
-  ]
+  useEffect(() => {
+  const fetchDashboard = async () => {
+    try {
+      const data = await getDashboardData();
+      setDashboardData(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  fetchDashboard();
+}, []);
 
   const Timeline = ['08:00', '12:00', '16:00', '20:00', '24:00']
 
-  //assume line
-  const redTemp = devices
-  .find(d => d.name === 'Air Conditioner')
-  ?.history?.map((item) => item.temp) || []
+const redTemp = dashboardData?.temperatureHistory.ac || [];
+const purpleTemp = dashboardData?.temperatureHistory.water || [];
 
-  const purpleTemp = devices
-  .find(d => d.name === 'Refrigerator')
-  ?.history?.map((item) => item.temp) || []
 
-  const allDevices = devices.length;
-  const activeDevices = devices.filter((device) => device.status === 'active').length
-  const inactiveDevices = devices.filter((device) => device.status === 'inactive').length
+    const allDevices = dashboardData?.summary.allDevices || 0;
+    const activeDevices = dashboardData?.summary.activeDevices || 0;
+    const inactiveDevices = dashboardData?.summary.inactiveDevices || 0;
 
-  const CategoriesCount = {
-    air: devices.filter((d) => d.name === 'Air Conditioner').length,
-    ref: devices.filter((d) => d.name === 'Refrigerator').length,
-    kt: devices.filter((d) => d.name === 'Kitchen Light').length,
-    lv: devices.filter((d) => d.name === 'Living Room Light').length
-  }
+    const CategoriesCount = dashboardData?.categoriesCount || {
+    LIGHT: 0,
+    WATER: 0,
+    AC: 0,
+    FAN: 0,
+    TV: 0,
+    SECURITY: 0,
+    ETC: 0
+    };
 
   const data = {
     labels: ['Active', 'Inactive'],
@@ -195,18 +154,26 @@ function DashboardPage() {
     }
   };
 
-  const barChart = {
-    labels: ['Refrigerator', 'Air Conditioner', 'Kitchen Light', 'Living Room Light'],
+    const barChart = {
+    labels: ['LIGHT', 'WATER', 'AC', 'FAN', 'TV', 'SECURITY', 'ETC'],
     datasets: [{
-        data: [CategoriesCount.ref, CategoriesCount.air, CategoriesCount.kt, CategoriesCount.lv],
+        data: [
+        CategoriesCount.LIGHT,
+        CategoriesCount.WATER,
+        CategoriesCount.AC,
+        CategoriesCount.FAN,
+        CategoriesCount.TV,
+        CategoriesCount.SECURITY,
+        CategoriesCount.ETC
+        ],
         backgroundColor: '#7c73e6',
         borderRadius: 10,
         barThickness: 20
     }]
-  }
+    }
 
   const barChartOptions = {
-    indexAxis: 'y' as const, // เปลี่ยนเป็นกราฟแท่งแนวนอน
+    indexAxis: 'y' as const, 
     responsive: true,
     maintainAspectRatio: false,
     plugins: { legend: { display: false } },
@@ -228,7 +195,7 @@ function DashboardPage() {
         <main className="flex flex-col p-5 md:p-10 bg-(--bg-main) gap-10">
             <DashboardHeader title="Dashboard" username="Admin Username" />
             <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <button className="p-2 rounded-full bg-(--bg-card) device" onClick={() => navigate('/devices-controller')}>
+                <button className="p-2 rounded-full bg-(--bg-card) device" onClick={() => navigate('/devices')}>
                     <div className="flex flex-row gap-2 items-center">
                         <FontAwesomeIcon icon={faPowerOff} className="text-(--bg-card) text-2xl bg-(--color-primary) px-2 py-3 rounded-full" />
                         <div className="flex flex-col">
@@ -246,7 +213,7 @@ function DashboardPage() {
                         </div>
                     </div>
                 </button>
-                <button className="p-2 rounded-full bg-(--bg-card) notifications ">
+                <button className="p-2 rounded-full bg-(--bg-card) notifications " onClick={() => navigate('/notifications')}>
                     <div className="flex flex-row gap-2 items-center">
                         <FontAwesomeIcon icon={faBell} className="text-(--bg-card) text-2xl bg-(--color-orange) px-2 py-3 rounded-full" />
                         <div className="flex flex-col">

@@ -132,8 +132,8 @@ npm run dev
 > ## Admin Auth
 
 ```text
-username:
-password:
+username: admin
+password: 123
 ```
 
 ---
