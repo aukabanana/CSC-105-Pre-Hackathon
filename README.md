@@ -60,6 +60,13 @@ The project supports admin IoT devices manager dashboard
 
 | api end point                                    | HTTP method | description                       |
 | :----------------------------------------------- | :---------: | :-------------------------------- |
+| http://localhost:3000/login                      |    POST     | admin login                       |
+| http://localhost:3000/logout                     |    POST     | admin logout                      |
+| http://localhost:3000/api/dashboard              |     GET     | get data graph analysis           |
+| http://localhost:3000/api/devices                |     GET     | get all devices                   |
+| http://localhost:3000/api/devices                |    POST     | create device                     |
+| http://localhost:3000/api/devices/:id            |    PATCH    | update status device              |
+| http://localhost:3000/api/devices/:id            |   DELETE    | soft-delete device                |
 | http://localhost:3000/api/electronics            |     GET     | get all electronics for calculate |
 | http://localhost:3000/api/electronics/:id        |    PATCH    | get electronics by id             |
 | http://localhost:3000/api/notifications          |     GET     | get all notifications             |
