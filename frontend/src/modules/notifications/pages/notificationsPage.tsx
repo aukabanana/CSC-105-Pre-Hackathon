@@ -1,6 +1,7 @@
 import DashboardHeader from "../../../components/dashboardHeader";
 import GoHomeButton from "../../../components/goHomeButton";
 import NotificationList from "../components/notificationList";
+import { useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { getNotifications,markNotificationAsRead } from "../apis/notificationApi";

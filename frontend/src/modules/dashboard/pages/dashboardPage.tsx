@@ -1,8 +1,9 @@
-import DashboardHeader from "../components/dashboardHeader.tsx";
+import DashboardHeader from "../../../components/dashboardHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPowerOff, faCalculator, faCircle } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 import { Line, Bar, Doughnut } from 'react-chartjs-2';
+import { useNavigate } from "react-router-dom";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -28,6 +29,8 @@ ChartJS.register(
 
 
 function DashboardPage() {
+
+  const navigate = useNavigate()
 
     const devices = [
     {
@@ -225,7 +228,7 @@ function DashboardPage() {
         <main className="flex flex-col p-5 md:p-10 bg-(--bg-main) gap-10">
             <DashboardHeader title="Dashboard" username="Admin Username" />
             <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <button className="p-2 rounded-full bg-(--bg-card) device">
+                <button className="p-2 rounded-full bg-(--bg-card) device" onClick={() => navigate('/devices-controller')}>
                     <div className="flex flex-row gap-2 items-center">
                         <FontAwesomeIcon icon={faPowerOff} className="text-(--bg-card) text-2xl bg-(--color-primary) px-2 py-3 rounded-full" />
                         <div className="flex flex-col">
@@ -234,7 +237,7 @@ function DashboardPage() {
                         </div>
                     </div>
                 </button>
-                <button className="p-2 rounded-full bg-(--bg-card) calculate">
+                <button className="p-2 rounded-full bg-(--bg-card) calculate" onClick={() => navigate('/electric-charge')}>
                     <div className="flex flex-row gap-2 items-center">
                         <FontAwesomeIcon icon={faCalculator} className="text-(--bg-card) text-2xl bg-(--color-success) px-2 py-3 rounded-full" />
                         <div className="flex flex-col">
@@ -243,7 +246,7 @@ function DashboardPage() {
                         </div>
                     </div>
                 </button>
-                <button className="p-2 rounded-full bg-(--bg-card) notifications">
+                <button className="p-2 rounded-full bg-(--bg-card) notifications ">
                     <div className="flex flex-row gap-2 items-center">
                         <FontAwesomeIcon icon={faBell} className="text-(--bg-card) text-2xl bg-(--color-orange) px-2 py-3 rounded-full" />
                         <div className="flex flex-col">

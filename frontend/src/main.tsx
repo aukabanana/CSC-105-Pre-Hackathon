@@ -5,23 +5,24 @@ import './index.css'
 import App from './App.tsx'
 import { notificationsPage } from './modules/notifications/routers/notifications.router'
 import ElectricChargePage from './pages/electricChargePage.tsx'
-import DashboardPage from './pages/dashboardPage.tsx'
-import { DevicePage } from './pages/devicesPage.tsx'
-import LoginPage from './pages/loginPage.tsx'
+// import DashboardPage from './pages/dashboardPage.tsx'
+import { dashboardPage } from './modules/dashboard/routers/dashboard.router.tsx'
+import { DevicePage } from './modules/devices/pages/devicesPage.tsx'
+import LoginPage from './modules/dashboard/pages/loginPage.tsx'
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
-        children: [...notificationsPage],
-    },
-    {
-        index: true,
-        element: <LoginPage />, 
-    },
-    {
-        path: '/dashboard',
-        element: <DashboardPage />,
+        children: [
+            {
+                index: true,
+                element: <LoginPage />,
+            },
+            ...LoginPage,
+            ...dashboardPage,
+            ...notificationsPage,
+        ],
     },
     {
         path: '/devices-controller',
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/electric-charge',
-        element: <ElectricChargePage />   
+        element: <ElectricChargePage />
     },
 
 ])
