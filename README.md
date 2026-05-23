@@ -1,8 +1,8 @@
-# Prehack Project
+# Prehack Project SIT CS 2026
 
-## Devices Near Barn
+## Project name : Devices Near Barn
 
-## About
+### About
 
 DevicesNearBarn is a full-stack web application with responsive web design.  
 The project supports admin IoT devices manager dashboard
@@ -10,7 +10,7 @@ The project supports admin IoT devices manager dashboard
 ## Members & Features
 
 | Members | Features |
-| :--: | ------------------------- |
+| :-- | :------------------------- |
 | Theetouch Chayanun 68130500815 | `Electricity Cost Calculation` |
 | Navipin Hongpitakkul 68130500818 | `Smart Home Dashboard` `Devices manangement and control ` |
 | Ratchapol Toopthong 68130500822 | `Notification and alert system` |
@@ -54,6 +54,17 @@ The project supports admin IoT devices manager dashboard
 
 - SQLite
 - Prisma ORM
+
+---
+
+## APIs
+
+| api end point | description |
+| :-- | :------------------------- |
+|  | `` |
+|  | `` |
+|  | `` |
+
 
 ---
 
