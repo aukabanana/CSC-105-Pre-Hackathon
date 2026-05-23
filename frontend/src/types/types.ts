@@ -3,15 +3,6 @@ export interface Header {
     username? : string
 }
 
-export interface DeviceIconCard {
-    icon: string,
-    name: string,
-    watt: string,
-    status: boolean,
-    type: string,
-    location: string,
-}
-
 export type LoginGet = {
     username: string,
     password: string

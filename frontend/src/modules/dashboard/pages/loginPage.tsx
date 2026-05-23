@@ -7,8 +7,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom"
 import { loginAdmin } from "../../../api/nearBan.ts"
-import { useState } from "react"
-import { ErrorMessage } from "../../../api/nearBan.ts"
+// import { useState } from "react"
+// import { ErrorMessage } from "../../../api/nearBan.ts"
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -23,7 +23,7 @@ type loginFormData = z.infer<typeof loginSchema>;
 
 function LoginPage() {
     const navigate = useNavigate()
-    const [loginError, setLoginError] = useState('')
+    // const [loginError, setLoginError] = useState('')
 
     const {
         register,
@@ -42,7 +42,8 @@ function LoginPage() {
             console.log('Login Succesfully', response)
             navigate('/dashboard')
         } catch (err) {
-            setLoginError(ErrorMessage(err))
+            // setLoginError(ErrorMessage(err))
+            console.log(err)
         }
     }
 

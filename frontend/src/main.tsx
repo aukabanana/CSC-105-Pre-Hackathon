@@ -7,7 +7,7 @@ import { notificationsPage } from './modules/notifications/routers/notifications
 import ElectricChargePage from './pages/electricChargePage.tsx'
 // import DashboardPage from './pages/dashboardPage.tsx'
 import { dashboardPage } from './modules/dashboard/routers/dashboard.router.tsx'
-import { DevicePage } from './modules/devices/pages/devicesPage.tsx'
+import { devicesPage } from './modules/devices/routers/devices.router.tsx'
 import LoginPage from './modules/dashboard/pages/loginPage.tsx'
 
 const router = createBrowserRouter([
@@ -19,15 +19,15 @@ const router = createBrowserRouter([
                 index: true,
                 element: <LoginPage />,
             },
-            ...LoginPage,
             ...dashboardPage,
+            ...devicesPage,
             ...notificationsPage,
         ],
     },
-    {
-        path: '/devices-controller',
-        element: <DevicePage />
-    },
+    // {
+    //     path: '/devices-controller',
+    //     element: <DevicePage />
+    // },
     {
         path: '/electric-charge',
         element: <ElectricChargePage />

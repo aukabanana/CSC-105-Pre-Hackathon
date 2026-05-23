@@ -6,6 +6,43 @@ import jwt from 'jsonwebtoken'
 import { ZodError } from 'zod'
 import { z } from 'zod'
 
+const registerSchema = z.object({
+    username: z.string(),
+    password: z.string()
+})
+
+export const registerAdmin = async (req: Request, res: Response) => {
+  try {
+    const { username, password } = registerSchema.parse(req.body)
+
+    const hashedPassword = await bcrypt.hash(password, 10)
+
+    const admin = await prisma.admin.create({
+      data: {
+        username,
+        password: hashedPassword
+      }
+    })
+
+    res.status(200).json({
+      message: 'Create admin already',
+      admin
+    })
+
+  } catch (error) {
+
+    if (error instanceof ZodError) {
+      return res.status(400).json({
+        message: 'Bad Request'
+      })
+    }
+
+    return res.status(500).json({
+      message: 'Server Error'
+    })
+  }
+}
+
 
 export const loginAdmin = async (req: Request, res: Response) => {
     try {
