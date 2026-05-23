@@ -2,9 +2,14 @@ import prisma from "../../../lib/prisma.js";
 
 export async function getNotification() {
     return prisma.notification.findMany({
-        orderBy: {
-            created_at: 'desc',
-        },
+        orderBy: [
+            {
+                is_read: "asc",
+            },
+            {
+                created_at: "desc",
+            },
+        ],
         include: {
             electronic: {
                 select: {
@@ -12,8 +17,8 @@ export async function getNotification() {
                     name: true,
                     type: true,
                     location: true,
-                }
-            }
-        }
-    })
+                },
+            },
+        },
+    });
 }
