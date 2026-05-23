@@ -6,7 +6,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import authRouter from './routes/auth.route.js'
-import router from './routes/auth.route.js'
+import router from './routes/routes.js';
 
 
 
