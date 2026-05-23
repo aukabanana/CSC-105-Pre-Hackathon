@@ -9,11 +9,11 @@ The project supports admin IoT devices manager dashboard
 
 ## Members & Features
 
-| Members | Features |
-| :-- | :------------------------- |
-| Theetouch Chayanun 68130500815 | `Electricity Cost Calculation` |
-| Navipin Hongpitakkul 68130500818 | `Smart Home Dashboard` `Devices manangement and control ` |
-| Ratchapol Toopthong 68130500822 | `Notification and alert system` |
+| Members                          | Features                                                 |
+| :------------------------------- | :------------------------------------------------------- |
+| Theetouch Chayanun 68130500815   | `Electricity Cost Calculation`                           |
+| Navipin Hongpitakkul 68130500818 | `Smart Home Dashboard` `Devices manangement and control` |
+| Ratchapol Toopthong 68130500822  | `Notification and alert system`                          |
 
 ---
 
@@ -49,7 +49,6 @@ The project supports admin IoT devices manager dashboard
 - Cookie-based authentication
 - Cookie Parser
 
-  
 ### Database
 
 - SQLite
@@ -59,12 +58,10 @@ The project supports admin IoT devices manager dashboard
 
 ## APIs
 
-| api end point | description |
-| :-- | :------------------------- |
-|  | `` |
-|  | `` |
-|  | `` |
-
+| api end point                                | HTTP method | description           |
+| :------------------------------------------- | :---------: | :-------------------- |
+| http://localhost:3000/notifications          |     GET     | get all notifications |
+| http://localhost:3000/notifications/:id/read |    PATCH    | update read status    |
 
 ---
 
@@ -108,6 +105,7 @@ npx prisma mirgrate dec
 npx prisma generate
 npm run dev
 ```
+
 ---
 
 ### 3. Database view with Prisma Studio
@@ -130,13 +128,15 @@ npm run dev
 ---
 
 ## Admin Auth
+
 ```text
-username: 
-password: 
+username:
+password:
 ```
 
 ---
 
 ## Notes:
+
 - Do not commit `node_modules`
 - Do not commit `.env`
