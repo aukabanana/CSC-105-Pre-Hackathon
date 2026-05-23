@@ -1,4 +1,4 @@
-# Prehack Project SIT CS 2026
+> # Prehack Project SIT CS 2026
 
 ## Project name : Devices Near Barn
 
@@ -7,7 +7,7 @@
 DevicesNearBarn is a full-stack web application with responsive web design.  
 The project supports admin IoT devices manager dashboard
 
-## Members & Features
+> ## Members & Features
 
 | Members                          | Features                                                 |
 | :------------------------------- | :------------------------------------------------------- |
@@ -17,7 +17,7 @@ The project supports admin IoT devices manager dashboard
 
 ---
 
-## List of Features
+> ## List of Features
 
 - Smart Home Dashboard
 - Devices management and control
@@ -26,7 +26,7 @@ The project supports admin IoT devices manager dashboard
 
 ---
 
-## Tech Stack
+> ## Tech Stack
 
 ### Frontend
 
@@ -56,7 +56,7 @@ The project supports admin IoT devices manager dashboard
 
 ---
 
-## APIs
+> ## APIs
 
 | api end point                                | HTTP method | description           |
 | :------------------------------------------- | :---------: | :-------------------- |
@@ -65,7 +65,7 @@ The project supports admin IoT devices manager dashboard
 
 ---
 
-## Installation & Run Project
+> ## Installation & Run Project
 
 ### 1. Clone the repository
 
@@ -108,7 +108,7 @@ npm run dev
 
 ---
 
-### 3. Database view with Prisma Studio
+> ### 3. Database view with Prisma Studio
 
 Launch Prisma Studio :
 
@@ -117,7 +117,7 @@ cd backend
 npx prisma studio
 ```
 
-### 4. Frontend Setup
+> ### 4. Frontend Setup
 
 ```bash
 cd frontend
@@ -127,7 +127,7 @@ npm run dev
 
 ---
 
-## Admin Auth
+> ## Admin Auth
 
 ```text
 username:
@@ -136,7 +136,7 @@ password:
 
 ---
 
-## Notes:
+> ## Notes:
 
 - Do not commit `node_modules`
 - Do not commit `.env`
