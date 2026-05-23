@@ -176,3 +176,19 @@ body {
     transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: transform, box-shadow, background;
 }
+
+.info {
+    border-color: var(--color-primary);
+}
+.warning {
+    border-color: var(--color-orange);
+}
+.critical {
+    border-color: var(--color-danger);
+}
+
+.read {
+    border: 0.5px solid var(--color-primary);
+    background-color: var(--bg-card);
+    color: var(--color-primary);
+}

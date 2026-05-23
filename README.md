@@ -1,11 +1,32 @@
-# Devices Near Barn
+> # Prehack Project SIT CS 2026
+
+## Project name : Devices Near Barn
+
+### About
 
 DevicesNearBarn is a full-stack web application with responsive web design.  
 The project supports admin IoT devices manager dashboard
 
+> ## Members & Features
+
+| Members                          | Features                                                 |
+| :------------------------------- | :------------------------------------------------------- |
+| Theetouch Chayanun 68130500815   | `Electricity Cost Calculation`                           |
+| Navipin Hongpitakkul 68130500818 | `Smart Home Dashboard` `Devices manangement and control` |
+| Ratchapol Toopthong 68130500822  | `Notification and alert system`                          |
+
 ---
 
-## Tech Stack
+> ## List of Features
+
+- Smart Home Dashboard
+- Devices management and control
+- Electricity cost calculation
+- Notification and alert system
+
+---
+
+> ## Tech Stack
 
 ### Frontend
 
@@ -25,11 +46,9 @@ The project supports admin IoT devices manager dashboard
 - CORS
 - Morgan
 - Prisma ORM
-- Multer for image upload
 - Cookie-based authentication
 - Cookie Parser
 
-  
 ### Database
 
 - SQLite
@@ -37,7 +56,18 @@ The project supports admin IoT devices manager dashboard
 
 ---
 
-## Installation & Run Project
+> ## APIs
+
+| api end point                                    | HTTP method | description                       |
+| :----------------------------------------------- | :---------: | :-------------------------------- |
+| http://localhost:3000/api/electronics            |     GET     | get all electronics for calculate |
+| http://localhost:3000/api/electronics/:id        |    PATCH    | get electronics by id             |
+| http://localhost:3000/api/notifications          |     GET     | get all notifications             |
+| http://localhost:3000/api/notifications/:id/read |    PATCH    | update read status                |
+
+---
+
+> ## Installation & Run Project
 
 ### 1. Clone the repository
 
@@ -58,41 +88,38 @@ npm install
 Create an environment file:
 
 ```bash
-cp .env.example .env
+touch .env
 ```
 
 Example `.env` file:
 
 ```env
-DATABASE_URL="file:./dev.db"
 PORT=3000
-CORS_ORIGIN="http://localhost:5173"
-JWT_SECRET="your-secret-here"
-```
-
-Create the upload folder (if upload/img doesn't exist):
-```
-mkdir -p uploads/img
+CORS_ORIGIN=http://localhost:5173
+DATABASE_URL="file:./dev.db"
+JWT_SECRET=your_secret_key_here
 ```
 
 Generate Prisma client:
 
 ```bash
-npm install
+npx prisma mirgrate dec
 npx prisma generate
-npx prisma migrate dev
-npx prisma db seed
-```
-
-The backend server should run at:
-
-```txt
-http://localhost:3000
+npm run dev
 ```
 
 ---
 
-### 3. Frontend Setup
+> ### 3. Database view with Prisma Studio
+
+Launch Prisma Studio :
+
+```bash
+cd backend
+npx prisma studio
+```
+
+> ### 4. Frontend Setup
 
 ```bash
 cd frontend
@@ -102,34 +129,16 @@ npm run dev
 
 ---
 
-The frontend should run at:
+> ## Admin Auth
 
-```txt
-http://localhost:5173
+```text
+username:
+password:
 ```
 
 ---
 
-### 4. Database view with Prisma Studio
+> ## Notes:
 
-Launch Prisma Studio :
-
-```bash
-cd backend
-npx prisma studio
-```
-
-This will open a web interface at.
-```bash
-http://localhost:51212
-```
-You'll see your Menu, Restaurant and Admin table listed on the left.
-
-
----
-
-## Notes:
 - Do not commit `node_modules`
 - Do not commit `.env`
-- Commit uploaded user images is available
-- Uploaded images should be stored as file paths, not BLOBs
