@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express'
 import 'dotenv/config'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
-import cors from 'cors'
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import authRouter from './routes/auth.route.js'
@@ -17,6 +17,7 @@ const PORT = process.env.PORT
 
 if (!PORT) throw new Error('PORT is missing in your dotenv file')
 
+app.use(cors({ origin: "http://localhost:5173"}))
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
