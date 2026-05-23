@@ -24,7 +24,7 @@ interface CreateDeviceResponse {
 
 export async function getAllDevices(): Promise<DeviceIconCardModel[]> {
     try {
-        const response = await axios.get<GetAllDevicesResponse>("http://localhost:3000/devices",
+        const response = await axios.get<GetAllDevicesResponse>("http://localhost:3000/api/devices",
             {
                 withCredentials: true 
             }
@@ -42,7 +42,7 @@ export async function getAllDevices(): Promise<DeviceIconCardModel[]> {
 export async function createDevices(input: CreateDeviceInput): Promise<DeviceIconCardModel> {
     try {
         const response = await axios.post<CreateDeviceResponse>(
-            "http://localhost:3000/devices", 
+            "http://localhost:3000/api/devices", 
             input,                            
             {
                 withCredentials: true         
@@ -59,7 +59,7 @@ export async function createDevices(input: CreateDeviceInput): Promise<DeviceIco
 
 export async function deleteDevice(id: string): Promise<DeviceIconCardModel> {
     try {
-        const response = await axios.delete(`http://localhost:3000/devices/${id}`,
+        const response = await axios.delete(`http://localhost:3000/api/devices/${id}`,
             {
                 withCredentials: true
             }
@@ -76,7 +76,7 @@ export async function deleteDevice(id: string): Promise<DeviceIconCardModel> {
 export async function updateDeviceStatus(id: string): Promise<DeviceIconCardModel> {
     try {
         const response = await axios.patch(
-            `http://localhost:3000/device-status/${id}`,
+            `http://localhost:3000/api/devices/${id}`,
             {},
             {
                 withCredentials: true
