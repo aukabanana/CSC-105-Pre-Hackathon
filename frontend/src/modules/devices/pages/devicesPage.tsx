@@ -1,9 +1,11 @@
-import DeviceCard from "../components/deviceCard";
-import DashboardHeader from "../components/dashboardHeader";
-import GoHomeButton from "../components/goHomeButton";
+import DeviceCard from "../../../components/deviceCard";
+import DashboardHeader from "../../../components/dashboardHeader";
+import GoHomeButton from "../../../components/goHomeButton";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function DevicePage() {
+    const navigate = useNavigate()
     const [addDevice, setAddDevice] = useState<boolean>(false)
     return (
         <div className="flex flex-col p-5 md:p-10 bg-(--bg-main)
@@ -11,7 +13,7 @@ export function DevicePage() {
             <DashboardHeader title="Device" username="Admin Username" />
 
             <div className="flex flex-row justify-between">
-                <GoHomeButton />
+                <GoHomeButton onClick={() => navigate("/dashboard")} />
                 <button className="px-4 md:px-6 bg-(--color-primary) 
                 rounded-full flex flex-row items-center justify-center gap-4
                 shadow-(--shadow-button) cursor-pointer hover:bg-(--color-primary-hover)

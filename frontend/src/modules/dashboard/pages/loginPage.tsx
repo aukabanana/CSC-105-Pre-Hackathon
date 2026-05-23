@@ -1,4 +1,4 @@
-import DashboardHeader from "../components/dashboardHeader.tsx"
+import DashboardHeader from "../../../components/dashboardHeader.tsx"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { z } from 'zod'
 import {
@@ -6,9 +6,9 @@ import {
     faLock
 } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom"
-import { loginAdmin } from "../api/nearBan.ts"
+import { loginAdmin } from "../../../api/nearBan.ts"
 import { useState } from "react"
-import { ErrorMessage } from "../api/nearBan.ts"
+import { ErrorMessage } from "../../../api/nearBan.ts"
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 

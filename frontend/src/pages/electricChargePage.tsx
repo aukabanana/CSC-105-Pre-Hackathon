@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DashboardHeader from '../components/dashboardHeader';
 import GoHomeButton from '../components/goHomeButton';
+import { useNavigate } from 'react-router-dom';
 
 interface ElectronicDevice {
   id: string;
@@ -14,6 +15,8 @@ interface ElectronicDevice {
 }
 
 const ElectricChargePage: React.FC = () => {
+  const navigate = useNavigate()
+
   const [devices, setDevices] = useState<ElectronicDevice[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -51,7 +54,7 @@ const ElectricChargePage: React.FC = () => {
 
       <div className="p-4 md:p-6 max-w-6xl mx-auto">
         <div className="mb-4">
-          <GoHomeButton />
+          <GoHomeButton onClick={() => navigate('/dashboard')}/>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100 flex flex-col lg:flex-row justify-between items-center gap-8 mb-8">
