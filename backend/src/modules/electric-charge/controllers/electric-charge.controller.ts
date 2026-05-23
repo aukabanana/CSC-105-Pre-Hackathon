@@ -1,11 +1,9 @@
 import { Request, Response } from "express";
-import prisma from "../lib/prisma.js";
-
+import prisma from "../../../lib/prisma.js";
 
 export const getCalElectronics = async (req: Request, res: Response) => {
     try {
-
-            const electronics = await prisma.electronic.findMany();
+        const electronics = await prisma.electronic.findMany();
 
         const calculatedData = electronics.map((item: { time_usage: number; watt: number }) => {
             const hours = (item.time_usage || 0) / 3600; 
