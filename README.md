@@ -58,10 +58,12 @@ The project supports admin IoT devices manager dashboard
 
 > ## APIs
 
-| api end point                                | HTTP method | description           |
-| :------------------------------------------- | :---------: | :-------------------- |
-| http://localhost:3000/notifications          |     GET     | get all notifications |
-| http://localhost:3000/notifications/:id/read |    PATCH    | update read status    |
+| api end point                                    | HTTP method | description                       |
+| :----------------------------------------------- | :---------: | :-------------------------------- |
+| http://localhost:3000/api/electronics            |     GET     | get all electronics for calculate |
+| http://localhost:3000/api/electronics/:id        |    PATCH    | get electronics by id             |
+| http://localhost:3000/api/notifications          |     GET     | get all notifications             |
+| http://localhost:3000/api/notifications/:id/read |    PATCH    | update read status                |
 
 ---
 
