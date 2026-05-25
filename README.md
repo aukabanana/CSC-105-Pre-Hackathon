@@ -110,7 +110,7 @@ JWT_SECRET=your_secret_key_here
 Generate Prisma client:
 
 ```bash
-npx prisma mirgrate dec
+npx prisma mirgrate dev
 npx prisma generate
 npm run dev
 ```
