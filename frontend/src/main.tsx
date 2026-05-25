@@ -4,10 +4,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { notificationsPage } from './modules/notifications/routers/notifications.router'
-import ElectricChargePage from './pages/electricChargePage.tsx'
-// import DashboardPage from './pages/dashboardPage.tsx'
 import { dashboardPage } from './modules/dashboard/routers/dashboard.router.tsx'
 import { devicesPage } from './modules/devices/routers/devices.router.tsx'
+import { electricChargeRouter } from './modules/electricaharge/routers/electricCharge.router.tsx'
 import LoginPage from './modules/dashboard/pages/loginPage.tsx'
 
 const router = createBrowserRouter([
@@ -22,17 +21,9 @@ const router = createBrowserRouter([
             ...dashboardPage,
             ...devicesPage,
             ...notificationsPage,
+            ...electricChargeRouter, 
         ],
     },
-    // {
-    //     path: '/devices-controller',
-    //     element: <DevicePage />
-    // },
-    {
-        path: '/electric-charge',
-        element: <ElectricChargePage />
-    },
-
 ])
 
 createRoot(document.getElementById('root')!).render(
