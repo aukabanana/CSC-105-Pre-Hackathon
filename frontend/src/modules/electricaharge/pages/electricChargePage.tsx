@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Lightbulb, Droplets, Fan } from 'lucide-react';
 import DashboardHeader from "../../../components/dashboardHeader";
 import { getElectricChargeData } from '../api/electricCharge.api';
